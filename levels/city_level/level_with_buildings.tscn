@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://baa3xccximis0"]
+
+[ext_resource type="PackedScene" uid="uid://c7u81r5x1aevq" path="res://elements/Camera2D/camera_2d.tscn" id="1_225ji"]
+[ext_resource type="PackedScene" uid="uid://b77c1yby1hs7s" path="res://elements/userArtillery/user_artillery.tscn" id="2_o7owe"]
+[ext_resource type="PackedScene" uid="uid://cq37gdgsdpqrk" path="res://elements/SignWithCityName/табличка_с_названием_города.tscn" id="3_dl5r4"]
+[ext_resource type="PackedScene" uid="uid://cam6scb7cc36e" path="res://GUI/ArtillerySettings/ArtillerySettings.tscn" id="4_ms3ut"]
+[ext_resource type="Script" path="res://levels/city_level/enemies_buildings.gd" id="5_5wswk"]
+[ext_resource type="PackedScene" uid="uid://bjtwqsm3o14eq" path="res://elements/NPC/building/building.tscn" id="6_je7p5"]
+[ext_resource type="AudioStream" uid="uid://ox68dtuqtko7" path="res://assets/audio/attack-the-d-point.mp3" id="7_8xgqt"]
+[ext_resource type="AudioStream" uid="uid://c8ev6j1bf6ko4" path="res://assets/audio/Anamnez - Нулевой километр.mp3" id="8_re7ey"]
+
+[node name="level_with_buildings" type="Node2D"]
+
+[node name="Camera2D" parent="." instance=ExtResource("1_225ji")]
+
+[node name="userArtillery" parent="." instance=ExtResource("2_o7owe")]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_left = -463.0
+offset_top = -787.0
+offset_right = -279.0
+offset_bottom = -606.0
+
+[node name="ТабличкаСНазваниемГорода" parent="." instance=ExtResource("3_dl5r4")]
+position = Vector2(-250, -711)
+
+[node name="ArtillerySettingsCanvasLayer" parent="." instance=ExtResource("4_ms3ut")]
+
+[node name="Enemies" type="Node" parent="."]
+script = ExtResource("5_5wswk")
+
+[node name="building" parent="Enemies" instance=ExtResource("6_je7p5")]
+position = Vector2(1372, -1241)
+
+[node name="building2" parent="Enemies" instance=ExtResource("6_je7p5")]
+position = Vector2(-1638, -1894)
+
+[node name="building3" parent="Enemies" instance=ExtResource("6_je7p5")]
+position = Vector2(585, -2748)
+
+[node name="ATTACKTHEDPOINT" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_8xgqt")
+
+[node name="DefeatingTimer" type="Timer" parent="."]
+wait_time = 120.0
+one_shot = true
+autostart = true
+
+[node name="backgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_re7ey")
+autoplay = true
+parameters/looping = true
+
+[connection signal="timeout" from="DefeatingTimer" to="Enemies" method="_on_defeating_timer_timeout"]

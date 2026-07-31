@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://x7wvo8bh5meq"]
+
+[ext_resource type="Texture2D" uid="uid://plwgp3u177ij" path="res://assets/Lupin's textures/enemies/tank/TankBase.png" id="1_07bkp"]
+[ext_resource type="Texture2D" uid="uid://bow2m0v7uw6ju" path="res://assets/Lupin's textures/enemies/tank/TankTower.png" id="2_xblpy"]
+
+[node name="enemy_tank" type="Node2D"]
+
+[node name="tank_hull" type="Sprite2D" parent="."]
+texture = ExtResource("1_07bkp")
+region_enabled = true
+region_rect = Rect2(163, 182, 154, 311)
+
+[node name="Sprite2D" type="Sprite2D" parent="tank_hull"]
+texture = ExtResource("2_xblpy")
+offset = Vector2(0, -110)
+region_enabled = true
+region_rect = Rect2(181, 51, 118, 348)

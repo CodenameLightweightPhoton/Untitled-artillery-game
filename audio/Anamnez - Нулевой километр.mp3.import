@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c8ev6j1bf6ko4"
+path="res://.godot/imported/Anamnez - Нулевой километр.mp3-0e3181fbb8f38a3ad7dbf1adc496faf3.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Anamnez - Нулевой километр.mp3"
+dest_files=["res://.godot/imported/Anamnez - Нулевой километр.mp3-0e3181fbb8f38a3ad7dbf1adc496faf3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

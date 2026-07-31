@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://cq37gdgsdpqrk"]
+
+[ext_resource type="Script" path="res://levels/city_level/city_name.gd" id="1_6ijgj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uf6fx"]
+bg_color = Color(0.804743, 0.804743, 0.804743, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tnxbv"]
+bg_color = Color(0.2484, 0.2484, 0.2484, 1)
+
+[node name="ТабличкаСНазваниемГорода" type="Node2D"]
+
+[node name="табличка" type="Panel" parent="."]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -50.0
+offset_right = 100.0
+offset_bottom = 50.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_uf6fx")
+
+[node name="CityName" type="Label" parent="табличка"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Магнитогорск"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_6ijgj")
+
+[node name="ножка левая" type="Panel" parent="."]
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 0.1
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = 50.0
+offset_right = -80.0
+offset_bottom = 150.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tnxbv")
+
+[node name="ножка правая" type="Panel" parent="."]
+anchors_preset = -1
+anchor_left = 0.9
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 80.0
+offset_top = 50.0
+offset_right = 100.0
+offset_bottom = 150.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tnxbv")

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dujm1du1qwd6g"]
+
+[ext_resource type="Script" path="res://elements/NPC/enemies/truck/truck_enemy.gd" id="1_pxovu"]
+[ext_resource type="Texture2D" uid="uid://g0chsnht3f3e" path="res://assets/Nikita's textures/enemies/truck/Truck.png" id="2_pmt5u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_husds"]
+size = Vector2(112, 272)
+
+[node name="TruckEnemy" type="Node2D"]
+script = ExtResource("1_pxovu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_pmt5u")
+region_enabled = true
+region_rect = Rect2(190, 205, 100, 260)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_husds")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

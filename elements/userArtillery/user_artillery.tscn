@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://b77c1yby1hs7s"]
+
+[ext_resource type="Script" uid="uid://cdri77k8e51aw" path="res://elements/userArtillery/user_artillery.gd" id="1_2ypwc"]
+[ext_resource type="Texture2D" uid="uid://dfhd3sn740pgb" path="res://assets/Lupin's textures/msta-s/msta-s base.png" id="2_hgwtq"]
+[ext_resource type="Texture2D" uid="uid://dp7imiyssp7yg" path="res://assets/Lupin's textures/msta-s/Msta-s tower with no cannon.png" id="3_34cfh"]
+[ext_resource type="Texture2D" uid="uid://dkca60silo1xr" path="res://assets/Lupin's textures/msta-s/msta-s cannon.png" id="4_c0rbl"]
+[ext_resource type="Texture2D" uid="uid://c78w8rvo168ea" path="res://assets/for_shooting/flashes/Flash_A_02.png" id="5_tgui2"]
+[ext_resource type="Texture2D" uid="uid://bwvslatdyj6wl" path="res://assets/for_shooting/flashes/Flash_A_01.png" id="6_1n8aa"]
+[ext_resource type="Texture2D" uid="uid://bn864gwhx48aj" path="res://assets/for_shooting/flashes/Flash_A_03.png" id="7_pngn7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ymn0d"]
+animations = [{
+"frames": [{
+"duration": 0.01,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1n8aa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tgui2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_pngn7")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="userArtillery" type="Node2D"]
+script = ExtResource("1_2ypwc")
+
+[node name="ChassiSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_hgwtq")
+region_enabled = true
+region_rect = Rect2(162.376, 184.093, 154.609, 311.147)
+
+[node name="TurretSprite" type="Sprite2D" parent="ChassiSprite"]
+position = Vector2(0, 21)
+texture = ExtResource("3_34cfh")
+region_enabled = true
+region_rect = Rect2(170.28, 275.953, 138.504, 172.499)
+
+[node name="Kazennik" type="Sprite2D" parent="ChassiSprite/TurretSprite"]
+position = Vector2(0, -84)
+texture = ExtResource("4_c0rbl")
+region_enabled = true
+region_rect = Rect2(224.5, 230, 30, 93.21)
+
+[node name="Cannon" type="Sprite2D" parent="ChassiSprite/TurretSprite/Kazennik"]
+show_behind_parent = true
+position = Vector2(0, -257)
+texture = ExtResource("4_c0rbl")
+offset = Vector2(0, 100)
+region_enabled = true
+region_rect = Rect2(227, 0, 25, 229)
+
+[node name="CannonFlash" type="AnimatedSprite2D" parent="ChassiSprite/TurretSprite/Kazennik/Cannon"]
+scale = Vector2(1.2, 1.2)
+sprite_frames = SubResource("SpriteFrames_ymn0d")
+offset = Vector2(0, -15)

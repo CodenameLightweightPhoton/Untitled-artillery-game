@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://csa1x1jfict7j"]
+
+[ext_resource type="Script" uid="uid://busxlbqpum6bn" path="res://levels/moving_cars_level/enemy_1.gd" id="1_aahgh"]
+[ext_resource type="Script" uid="uid://m3rt17xu1i5t" path="res://levels/moving_cars_level/enemies.gd" id="1_fbgjb"]
+[ext_resource type="PackedScene" uid="uid://d4f3p3jkga5p" path="res://elements/NPC/enemies/truck/enemy_truck.tscn" id="1_rh2hv"]
+[ext_resource type="PackedScene" uid="uid://b77c1yby1hs7s" path="res://elements/userArtillery/user_artillery.tscn" id="2_ricyd"]
+[ext_resource type="PackedScene" uid="uid://cam6scb7cc36e" path="res://GUI/ArtillerySettings/ArtillerySettings.tscn" id="3_eusvu"]
+[ext_resource type="PackedScene" uid="uid://c7u81r5x1aevq" path="res://elements/Camera2D/camera_2d.tscn" id="4_5bcqb"]
+
+[sub_resource type="Curve2D" id="Curve2D_6u80c"]
+bake_interval = 100.0
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11010, 0)
+}
+point_count = 2
+
+[sub_resource type="TileSet" id="TileSet_06232"]
+
+[node name="LevelWithMovingTrucks" type="Node2D"]
+
+[node name="Enemies" type="Node" parent="."]
+script = ExtResource("1_fbgjb")
+
+[node name="Enemy1" type="Path2D" parent="Enemies"]
+position = Vector2(-4715, -2463)
+curve = SubResource("Curve2D_6u80c")
+script = ExtResource("1_aahgh")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Enemy1"]
+
+[node name="enemy_truck" parent="Enemies/Enemy1/PathFollow2D" instance=ExtResource("1_rh2hv")]
+rotation = 1.57009
+
+[node name="Enemy2" type="Path2D" parent="Enemies"]
+position = Vector2(-4138, -1878)
+curve = SubResource("Curve2D_6u80c")
+script = ExtResource("1_aahgh")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Enemy2"]
+
+[node name="enemy_truck" parent="Enemies/Enemy2/PathFollow2D" instance=ExtResource("1_rh2hv")]
+rotation = 1.57009
+
+[node name="Enemy3" type="Path2D" parent="Enemies"]
+position = Vector2(-4138, -1878)
+curve = SubResource("Curve2D_6u80c")
+script = ExtResource("1_aahgh")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Enemy3"]
+
+[node name="enemy_truck" parent="Enemies/Enemy3/PathFollow2D" instance=ExtResource("1_rh2hv")]
+position = Vector2(-293, -976)
+rotation = 1.57009
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_06232")
+
+[node name="userArtillery" parent="." instance=ExtResource("2_ricyd")]
+position = Vector2(-4, -11)
+
+[node name="ArtillerySettingsCanvasLayer" parent="." instance=ExtResource("3_eusvu")]
+
+[node name="Camera2D" parent="." instance=ExtResource("4_5bcqb")]

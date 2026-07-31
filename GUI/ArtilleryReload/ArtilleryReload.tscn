@@ -1,0 +1,146 @@
+[gd_scene load_steps=11 format=3 uid="uid://mi0t2221sigm"]
+
+[ext_resource type="Script" path="res://GUI/ArtilleryReload/ReloadingMarginContainer.gd" id="1_c7rfj"]
+[ext_resource type="Script" path="res://GUI/ArtilleryReload/Snaryad.gd" id="2_5l3d6"]
+[ext_resource type="Texture2D" uid="uid://cu8spwbf4hbgg" path="res://assets/Lupin's textures/msta-s/Snaryad.png" id="3_arsa1"]
+[ext_resource type="Script" path="res://GUI/ArtilleryReload/Shompol.gd" id="4_x6nu1"]
+[ext_resource type="Texture2D" uid="uid://dp8pukg6wgfss" path="res://assets/Lupin's textures/msta-s/Zaryad.png" id="6_oea5x"]
+[ext_resource type="Script" path="res://GUI/ArtilleryReload/Zaryad.gd" id="6_poe1v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_moyfa"]
+bg_color = Color(0.803922, 0.670588, 0.458824, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n41jk"]
+bg_color = Color(0.427451, 0.27451, 0.145098, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_color = Color(0.197937, 0.197937, 0.197937, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ugw0"]
+bg_color = Color(0.743038, 0.506797, 0.311169, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wmsgm"]
+bg_color = Color(0.187134, 0.304472, 0.0734443, 1)
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+corner_detail = 5
+
+[node name="ArtilleryReload" type="CanvasLayer"]
+
+[node name="ReloadingMarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -288.0
+offset_right = 288.0
+offset_bottom = 510.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(288, 0)
+script = ExtResource("1_c7rfj")
+
+[node name="ReloadingWorkspace" type="Panel" parent="ReloadingMarginContainer"]
+clip_contents = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_moyfa")
+
+[node name="RightConveyor" type="Panel" parent="ReloadingMarginContainer/ReloadingWorkspace"]
+layout_mode = 0
+offset_left = 457.0
+offset_top = 160.0
+offset_right = 577.0
+offset_bottom = 510.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_n41jk")
+
+[node name="LeftConveyor" type="Panel" parent="ReloadingMarginContainer/ReloadingWorkspace"]
+layout_mode = 0
+offset_top = 160.0
+offset_right = 120.0
+offset_bottom = 510.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_n41jk")
+
+[node name="Shompol" type="Panel" parent="ReloadingMarginContainer/ReloadingWorkspace"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.075
+anchor_top = 0.345
+anchor_right = 0.109
+anchor_bottom = 0.933
+offset_left = -0.200001
+offset_top = 0.0499878
+offset_right = 0.215996
+offset_bottom = 0.169983
+theme_override_styles/panel = SubResource("StyleBoxFlat_8ugw0")
+script = ExtResource("4_x6nu1")
+
+[node name="Button" type="Button" parent="ReloadingMarginContainer/ReloadingWorkspace/Shompol"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 20.0
+offset_bottom = 300.0
+action_mode = 0
+button_mask = 7
+
+[node name="Snaryad" type="TextureRect" parent="ReloadingMarginContainer/ReloadingWorkspace"]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 490.0
+offset_right = 562.0
+offset_bottom = 838.0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(41, 174)
+texture = ExtResource("3_arsa1")
+script = ExtResource("2_5l3d6")
+
+[node name="Button" type="Button" parent="ReloadingMarginContainer/ReloadingWorkspace/Snaryad"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Zaryad" type="TextureRect" parent="ReloadingMarginContainer/ReloadingWorkspace"]
+layout_mode = 0
+offset_left = 502.0
+offset_top = 576.0
+offset_right = 592.0
+offset_bottom = 732.0
+scale = Vector2(0.5, 0.6)
+texture = ExtResource("6_oea5x")
+script = ExtResource("6_poe1v")
+
+[node name="Button" type="Button" parent="ReloadingMarginContainer/ReloadingWorkspace/Zaryad"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 90.0
+offset_bottom = 156.0
+
+[node name="TipoKazennik" type="Panel" parent="ReloadingMarginContainer/ReloadingWorkspace"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.413
+anchor_right = 0.587
+anchor_bottom = 0.294
+offset_left = 0.111984
+offset_right = -0.112
+offset_bottom = 0.0599976
+theme_override_styles/panel = SubResource("StyleBoxFlat_wmsgm")
+
+[connection signal="button_down" from="ReloadingMarginContainer/ReloadingWorkspace/Shompol/Button" to="ReloadingMarginContainer/ReloadingWorkspace/Shompol" method="_on_button_button_down"]
+[connection signal="button_up" from="ReloadingMarginContainer/ReloadingWorkspace/Shompol/Button" to="ReloadingMarginContainer/ReloadingWorkspace/Shompol" method="_on_button_button_up"]
+[connection signal="button_down" from="ReloadingMarginContainer/ReloadingWorkspace/Snaryad/Button" to="ReloadingMarginContainer/ReloadingWorkspace/Snaryad" method="_on_button_button_down"]
+[connection signal="button_up" from="ReloadingMarginContainer/ReloadingWorkspace/Snaryad/Button" to="ReloadingMarginContainer/ReloadingWorkspace/Snaryad" method="_on_button_button_up"]
+[connection signal="button_down" from="ReloadingMarginContainer/ReloadingWorkspace/Zaryad/Button" to="ReloadingMarginContainer/ReloadingWorkspace/Zaryad" method="_on_button_button_down"]
+[connection signal="button_up" from="ReloadingMarginContainer/ReloadingWorkspace/Zaryad/Button" to="ReloadingMarginContainer/ReloadingWorkspace/Zaryad" method="_on_button_button_up"]

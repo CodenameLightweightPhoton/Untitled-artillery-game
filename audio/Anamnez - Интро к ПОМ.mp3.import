@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://du5y0h2o1l0f"
+path="res://.godot/imported/Anamnez - Интро к ПОМ.mp3-eb93863eed82dc4b42e2bc9ee7ee5f10.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Anamnez - Интро к ПОМ.mp3"
+dest_files=["res://.godot/imported/Anamnez - Интро к ПОМ.mp3-eb93863eed82dc4b42e2bc9ee7ee5f10.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

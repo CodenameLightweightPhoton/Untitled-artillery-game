@@ -1,0 +1,350 @@
+[gd_scene load_steps=24 format=3 uid="uid://cdgghvneggy40"]
+
+[ext_resource type="Script" uid="uid://bnhiq06fs3pqr" path="res://GUI/MainMenu/PlayButton.gd" id="1_sesre"]
+[ext_resource type="Script" uid="uid://d20vq2bppldlf" path="res://GUI/MainMenu/ButtonToMenu.gd" id="2_as5ow"]
+[ext_resource type="Script" uid="uid://xvfpe3srxumd" path="res://GUI/MainMenu/SettingsButton.gd" id="2_hrvf7"]
+[ext_resource type="Script" uid="uid://bkl602j7cvehk" path="res://GUI/MainMenu/manual_reload.gd" id="3_fvvo1"]
+[ext_resource type="Script" uid="uid://bdw5rcypi5ntc" path="res://GUI/MainMenu/exit_button.gd" id="3_k8u1i"]
+[ext_resource type="Script" uid="uid://c87jxbewuvmlk" path="res://GUI/MainMenu/leg_test_lvl_button.gd" id="5_y8hmf"]
+[ext_resource type="Texture2D" uid="uid://cuvcbq854fj8f" path="res://assets/otherTextures/levelsIcons/LEGENDARYtestinglevelIcon.png" id="6_xqvep"]
+[ext_resource type="AudioStream" uid="uid://bik3hltl8fmdo" path="res://assets/audio/Anamnez - Остаться человеком.mp3" id="7_u48cc"]
+[ext_resource type="Texture2D" uid="uid://svhud6fdf7kt" path="res://assets/otherTextures/levelsIcons/CityLevel.png" id="8_t52hd"]
+[ext_resource type="Script" uid="uid://b5gnkmgu4ogiq" path="res://GUI/MainMenu/city_name_select.gd" id="9_76itl"]
+[ext_resource type="Script" uid="uid://bxm5gidsx4hqj" path="res://GUI/MainMenu/to_buildings_level.gd" id="9_wej43"]
+[ext_resource type="Texture2D" uid="uid://cu4ndopdf4s26" path="res://assets/otherTextures/levelsIcons/TrucksLevel.png" id="11_swl5j"]
+[ext_resource type="Script" uid="uid://b5vxffr1qgjsc" path="res://GUI/MainMenu/to_trucks_level.gd" id="12_lrvdu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhdsk"]
+bg_color = Color(0.294118, 0.32549, 0.12549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ge8l"]
+bg_color = Color(0.294118, 0.32549, 0.12549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_env53"]
+bg_color = Color(0.141176, 0.247059, 0.156863, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_02uvl"]
+bg_color = Color(0.142532, 0.246261, 0.155246, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ds7il"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gm8dq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3b4dg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_65xkh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w57dj"]
+atlas = ExtResource("8_t52hd")
+region = Rect2(100, 0, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrvdu"]
+atlas = ExtResource("11_swl5j")
+region = Rect2(24, 0, 392, 416)
+
+[node name="Menu" type="CanvasLayer"]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMenuPanel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lhdsk")
+
+[node name="PlayButton" type="Button" parent="MarginContainer/MainMenuPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.325
+anchor_top = 0.377
+anchor_right = 0.69
+anchor_bottom = 0.46
+offset_left = -8.00006
+offset_top = 0.839996
+offset_right = -8.80005
+offset_bottom = 1.19998
+theme_override_font_sizes/font_size = 30
+text = "ИГРАТЬ"
+script = ExtResource("1_sesre")
+
+[node name="GameName" type="Label" parent="MarginContainer/MainMenuPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.215
+anchor_top = 0.133
+anchor_right = 0.788
+anchor_bottom = 0.302
+offset_left = 0.319992
+offset_top = -0.183998
+offset_right = 0.223938
+offset_bottom = 0.303986
+theme_override_font_sizes/font_size = 70
+text = "Untitled artillery game"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="SettingsButton" type="Button" parent="MarginContainer/MainMenuPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.321
+anchor_top = 0.526
+anchor_right = 0.685
+anchor_bottom = 0.609
+offset_left = -0.320007
+offset_top = -0.0800171
+offset_right = 0.799927
+offset_bottom = 0.279968
+theme_override_font_sizes/font_size = 30
+text = "НАСТРОЙКИ"
+script = ExtResource("2_hrvf7")
+
+[node name="ExitButton" type="Button" parent="MarginContainer/MainMenuPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.321
+anchor_top = 0.667
+anchor_right = 0.685
+anchor_bottom = 0.75
+offset_left = -0.320007
+offset_top = -0.360046
+offset_right = 0.799927
+offset_bottom = -6.10352e-05
+theme_override_font_sizes/font_size = 30
+text = "ВЫЙТИ"
+script = ExtResource("3_k8u1i")
+
+[node name="SettingsPanel" type="Panel" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2ge8l")
+
+[node name="Label" type="Label" parent="MarginContainer/SettingsPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.355
+anchor_top = 0.046
+anchor_right = 0.645
+anchor_bottom = 0.154
+offset_left = 0.039978
+offset_top = 0.191998
+offset_right = -0.0400391
+offset_bottom = 0.207993
+theme_override_font_sizes/font_size = 50
+text = "Настройки"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="HardnessButton" type="OptionButton" parent="MarginContainer/SettingsPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.528
+anchor_top = 0.541
+anchor_right = 0.7
+anchor_bottom = 0.618
+offset_left = -0.583984
+offset_top = 0.199951
+offset_right = 2.80798
+offset_bottom = 0.303955
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_env53")
+theme_override_styles/normal = SubResource("StyleBoxFlat_02uvl")
+alignment = 1
+text_overrun_behavior = 2
+selected = 0
+allow_reselect = true
+item_count = 4
+popup/item_0/text = "Легко"
+popup/item_0/id = 0
+popup/item_1/text = "Средне"
+popup/item_1/id = 1
+popup/item_2/text = "Тяжело"
+popup/item_2/id = 2
+popup/item_3/text = "РЕАЛИЗМ"
+popup/item_3/id = 3
+
+[node name="HardnessLabel" type="Label" parent="MarginContainer/SettingsPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.296
+anchor_top = 0.526
+anchor_right = 0.513
+anchor_bottom = 0.634
+offset_left = -0.320007
+offset_top = -0.0800171
+offset_right = -0.304138
+offset_bottom = -0.0640259
+theme_override_font_sizes/font_size = 40
+text = "Сложность"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Music" type="CheckButton" parent="MarginContainer/SettingsPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.396
+anchor_top = 0.4
+anchor_right = 0.604
+anchor_bottom = 0.481
+offset_left = -0.320068
+offset_right = 0.319946
+offset_bottom = 0.519958
+theme_override_font_sizes/font_size = 45
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ds7il")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gm8dq")
+button_pressed = true
+text = "Музыка"
+alignment = 1
+text_overrun_behavior = 2
+
+[node name="ToMenu" type="Button" parent="MarginContainer/SettingsPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.413
+anchor_top = 0.861
+anchor_right = 0.587
+anchor_bottom = 0.954
+offset_left = 0.223969
+offset_top = 0.0719604
+offset_right = -0.223999
+offset_bottom = -0.192017
+theme_override_font_sizes/font_size = 30
+text = "В МЕНЮ"
+script = ExtResource("2_as5ow")
+
+[node name="ManualReload" type="CheckButton" parent="MarginContainer/SettingsPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.358
+anchor_top = 0.274
+anchor_right = 0.625
+anchor_bottom = 0.352
+offset_left = 0.639954
+offset_top = 0.0799866
+offset_bottom = -0.46405
+theme_override_font_sizes/font_size = 45
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3b4dg")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_65xkh")
+button_pressed = true
+text = "Ручная перезарядка"
+alignment = 1
+script = ExtResource("3_fvvo1")
+
+[node name="LevelSelectingPanel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lhdsk")
+
+[node name="LegTestLVLButton" type="Button" parent="MarginContainer/LevelSelectingPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.027
+anchor_top = 0.106
+anchor_right = 0.287
+anchor_bottom = 0.707
+offset_left = -0.84
+offset_top = -0.480003
+offset_right = -0.039978
+offset_bottom = 0.440002
+theme_override_font_sizes/font_size = 40
+action_mode = 0
+text = "ЛЕГЕНДАРНЫЙ
+тестовый уровень"
+icon = ExtResource("6_xqvep")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+script = ExtResource("5_y8hmf")
+
+[node name="ToMenu" type="Button" parent="MarginContainer/LevelSelectingPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.413
+anchor_top = 0.861
+anchor_right = 0.587
+anchor_bottom = 0.954
+offset_left = 0.223969
+offset_top = 0.0719604
+offset_right = -0.223999
+offset_bottom = -0.192017
+theme_override_font_sizes/font_size = 30
+text = "В МЕНЮ"
+script = ExtResource("2_as5ow")
+
+[node name="ToBuildingsLevel" type="Button" parent="MarginContainer/LevelSelectingPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.339
+anchor_top = 0.106
+anchor_right = 0.599
+anchor_bottom = 0.707
+offset_left = 0.119995
+offset_top = -0.479996
+offset_right = 0.919922
+offset_bottom = 0.440002
+theme_override_font_sizes/font_size = 40
+action_mode = 0
+text = "Город(снизу можно
+выбрать название)"
+icon = SubResource("AtlasTexture_w57dj")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+script = ExtResource("9_wej43")
+
+[node name="city_name_select" type="LineEdit" parent="MarginContainer/LevelSelectingPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.339
+anchor_top = 0.722
+anchor_right = 0.599
+anchor_bottom = 0.815
+offset_left = -0.880005
+offset_top = 0.239929
+offset_right = -0.0800781
+offset_bottom = -0.200073
+script = ExtResource("9_76itl")
+
+[node name="ToTrucksLevel" type="Button" parent="MarginContainer/LevelSelectingPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.644
+anchor_top = 0.101
+anchor_right = 0.904
+anchor_bottom = 0.703
+offset_left = -0.480103
+offset_top = -0.0800018
+offset_right = 0.319946
+offset_bottom = -0.23999
+theme_override_font_sizes/font_size = 46
+text = "колонна
+грузовиков"
+icon = SubResource("AtlasTexture_lrvdu")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+script = ExtResource("12_lrvdu")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_u48cc")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true
+
+[connection signal="button_down" from="MarginContainer/MainMenuPanel/PlayButton" to="MarginContainer/MainMenuPanel/PlayButton" method="_on_button_down"]
+[connection signal="pressed" from="MarginContainer/MainMenuPanel/SettingsButton" to="MarginContainer/MainMenuPanel/SettingsButton" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/MainMenuPanel/ExitButton" to="MarginContainer/MainMenuPanel/ExitButton" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/SettingsPanel/ToMenu" to="MarginContainer/SettingsPanel/ToMenu" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/SettingsPanel/ManualReload" to="MarginContainer/SettingsPanel/ManualReload" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/LevelSelectingPanel/LegTestLVLButton" to="MarginContainer/LevelSelectingPanel/LegTestLVLButton" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/LevelSelectingPanel/ToMenu" to="MarginContainer/LevelSelectingPanel/ToMenu" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/LevelSelectingPanel/ToBuildingsLevel" to="MarginContainer/LevelSelectingPanel/ToBuildingsLevel" method="_on_pressed"]
+[connection signal="text_submitted" from="MarginContainer/LevelSelectingPanel/city_name_select" to="MarginContainer/LevelSelectingPanel/city_name_select" method="_on_text_submitted"]
+[connection signal="pressed" from="MarginContainer/LevelSelectingPanel/ToTrucksLevel" to="MarginContainer/LevelSelectingPanel/ToTrucksLevel" method="_on_pressed"]

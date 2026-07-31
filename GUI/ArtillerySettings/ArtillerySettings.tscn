@@ -1,0 +1,140 @@
+[gd_scene load_steps=5 format=3 uid="uid://cam6scb7cc36e"]
+
+[ext_resource type="Script" uid="uid://bo0wyx1yq4u0q" path="res://GUI/ArtillerySettings/ArtillerySettingsScript.gd" id="1_phkqe"]
+[ext_resource type="Script" uid="uid://5raafwft2yn3" path="res://GUI/ArtillerySettings/button_to_menu.gd" id="2_keced"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m06wp"]
+bg_color = Color(0.803922, 0.670588, 0.458824, 1)
+corner_detail = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fqkuq"]
+bg_color = Color(0, 0, 0, 0.45098)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+
+[node name="ArtillerySettingsCanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_phkqe")
+
+[node name="ArtillerySetValues" type="MarginContainer" parent="."]
+anchors_preset = -1
+anchor_right = 0.091
+anchor_bottom = 0.344
+offset_right = 0.168007
+offset_bottom = 0.0879974
+
+[node name="Panel" type="Panel" parent="ArtillerySetValues"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m06wp")
+
+[node name="Label" type="Label" parent="ArtillerySetValues/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.172
+anchor_top = 0.013
+anchor_right = 0.819
+anchor_bottom = 0.108
+offset_left = 0.0719986
+offset_top = 0.177
+offset_right = 0.494003
+offset_bottom = -0.0680008
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "АЗИМУТ"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="ArtillerySetValues/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.138
+anchor_top = 0.291
+anchor_right = 0.908
+anchor_bottom = 0.488
+offset_left = -0.012001
+offset_top = 0.0389938
+offset_right = 0.00799561
+offset_bottom = -0.0480194
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "ПОДЪЁМ
+ОРУДИЯ"
+horizontal_alignment = 1
+
+[node name="Azimut" type="LineEdit" parent="ArtillerySetValues/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.115
+anchor_top = 0.119
+anchor_right = 0.885
+anchor_bottom = 0.259
+offset_left = -0.0100002
+offset_top = -0.149002
+offset_right = 0.00999451
+offset_bottom = -0.0890045
+alignment = 1
+deselect_on_focus_loss_enabled = false
+
+[node name="Elevation" type="LineEdit" parent="ArtillerySetValues/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.112
+anchor_top = 0.511
+anchor_right = 0.883
+anchor_bottom = 0.65
+offset_left = 0.511999
+offset_top = 0.0470123
+offset_right = 0.358002
+offset_bottom = 0.477997
+
+[node name="ScoutingData" type="Button" parent="ArtillerySetValues/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.124
+anchor_top = 0.695
+anchor_right = 0.876
+anchor_bottom = 0.937
+offset_left = -0.0199995
+offset_top = 0.0149994
+offset_right = 0.0200043
+offset_bottom = 0.0490112
+theme_override_font_sizes/font_size = 20
+action_mode = 0
+text = "ЗАПРОСИТЬ
+ДАННЫЕ
+У РАЗВЕДКИ"
+
+[node name="ScoutingDataPanel" type="Panel" parent="."]
+anchors_preset = -1
+anchor_left = 0.266
+anchor_top = 0.907
+anchor_right = 0.734
+anchor_bottom = 1.0
+offset_left = -0.720001
+offset_top = 0.439941
+offset_right = 0.719971
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_fqkuq")
+
+[node name="DataShowLabel" type="Label" parent="ScoutingDataPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+
+[node name="ButtonToMenu" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.844
+anchor_right = 1.0
+anchor_bottom = 0.065
+offset_left = -0.480103
+offset_bottom = -0.200005
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 25
+text = "ВЕРНУТЬСЯ В МЕНЮ"
+script = ExtResource("2_keced")
+
+[connection signal="pressed" from="ArtillerySetValues/Panel/ScoutingData" to="." method="_on_scouting_data_pressed"]
+[connection signal="pressed" from="ButtonToMenu" to="ButtonToMenu" method="_on_pressed"]

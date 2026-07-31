@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjtwqsm3o14eq"]
+
+[ext_resource type="Texture2D" uid="uid://bgcx2kp1q304m" path="res://assets/Lupin's textures/building/building_middle.png" id="1_8nlt3"]
+[ext_resource type="Script" uid="uid://cp6cdxwwkset3" path="res://elements/NPC/building/building.gd" id="1_e5xfg"]
+[ext_resource type="Texture2D" uid="uid://bfunh4pyj56ui" path="res://assets/Lupin's textures/building/building_rear.png" id="2_4dd1n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jdgmu"]
+size = Vector2(1160, 610)
+
+[node name="building" type="Node2D"]
+script = ExtResource("1_e5xfg")
+
+[node name="BuildingMiddle" type="Sprite2D" parent="."]
+texture = ExtResource("1_8nlt3")
+region_enabled = true
+region_rect = Rect2(513, 260, 480, 645)
+
+[node name="BuildingRight" type="Sprite2D" parent="."]
+position = Vector2(407, 25.5)
+texture = ExtResource("2_4dd1n")
+region_enabled = true
+region_rect = Rect2(1134, 302, 338, 612)
+
+[node name="BuildingLeft" type="Sprite2D" parent="."]
+position = Vector2(-407, 25.5)
+texture = ExtResource("2_4dd1n")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(1134, 302, 338, 612)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 25)
+shape = SubResource("RectangleShape2D_jdgmu")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
